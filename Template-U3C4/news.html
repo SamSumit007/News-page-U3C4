@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Show the clicked article in detailed format here ONLY-->
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  import sidebar from "./components/sidebar.js"
+ // console.log('sidebar:', sidebar)
+ import {apiCall, appendArticles}  from "./scripts/main.js"
+
+
+ let sidebar_div = document.getElementById("sidebar");
+ sidebar_div.innerHTML = sidebar();
+
+let articles_Data = JSON.parse(localStorage.getItem('clicked_news'));
+console.log('articles_Data:', articles_Data);
+
+var articles = [];
+articles.push( articles_Data);
+let main = document.getElementById("main");
+
+appendArticles(articles, main);
+
+
+
+</script>
